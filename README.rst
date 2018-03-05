@@ -1,36 +1,10 @@
-Django-Markdown v. 0.8.4
+django-markdown-gcir v. 0.1.0
 ########################
 
 .. _description:
 
 **Django markdown** is django application that allows use markdown wysiwyg in flatpages, admin forms and other forms.
 Documentaton available at pypi_ or github_.
-
-.. _badges:
-
-.. image:: http://img.shields.io/travis/klen/django_markdown.svg?style=flat-square
-    :target: http://travis-ci.org/klen/django_markdown
-    :alt: Build Status
-
-.. image:: http://img.shields.io/coveralls/klen/django_markdown.svg?style=flat-square
-    :target: https://coveralls.io/r/klen/django_markdown
-    :alt: Coverals
-
-.. image:: http://img.shields.io/pypi/v/django_markdown.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/django_markdown
-    :alt: Version
-
-.. image:: http://img.shields.io/pypi/dm/django_markdown.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/django_markdown
-    :alt: Downloads
-
-.. image:: http://img.shields.io/pypi/l/django_markdown.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/django_markdown
-    :alt: License
-
-.. image:: http://img.shields.io/gratipay/klen.svg?style=flat-square
-    :target: https://www.gratipay.com/klen/
-    :alt: Donate
 
 .. contents::
 
@@ -39,8 +13,8 @@ Documentaton available at pypi_ or github_.
 Requirements
 ============
 
-- python >= 2.7
-- django >= 1.6
+- python >= 3.6
+- django >= 2.0
 - markdown
 
 
@@ -51,7 +25,7 @@ Installation
 
 **Django markdown** should be installed using pip: ::
 
-    pip install django-markdown
+    pip install django-markdown-gcir
 
 
 Setup
@@ -66,7 +40,7 @@ Setup
 
 - Add django_markdown urls to base urls ::
 
-    url('^markdown/', include( 'django_markdown.urls')),
+    re_path('^markdown/', include('django_markdown.urls')),
 
 
 Use django_markdown
@@ -75,6 +49,8 @@ Use django_markdown
 #) Models: ::
     
     from django_markdown.models import MarkdownField
+
+
     class MyModel(models.Model):
         content = MarkdownField()
 
@@ -82,6 +58,8 @@ Use django_markdown
 
     from django_markdown.fields import MarkdownFormField
     from django_markdown.widgets import MarkdownWidget
+
+
     class MyCustomForm(forms.Form):
         content = forms.CharField(widget=MarkdownWidget())
         content2 = MarkdownFormField()
@@ -89,11 +67,13 @@ Use django_markdown
 #) Custom admins: ::
 
     from django_markdown.admin import MarkdownModelAdmin
+
     admin.site.register(MyModel, MarkdownModelAdmin)
 
 #) Admin Overrides: (If you don't want to subclass package ModelAdmin's) ::
 
     from django.contrib import admin
+
 
     class YourModelAdmin(admin.ModelAdmin):
         formfield_overrides = {MarkdownField: {'widget': AdminMarkdownWidget}}
@@ -106,7 +86,7 @@ Use django_markdown
     # Django admin
     admin.autodiscover()
     flatpages.register()
-    urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
+    urlpatterns += [ re_path(r'^admin/', include(admin.site.urls)), ]
 
 #) Template tags: ::
 
@@ -171,7 +151,9 @@ at https://github.com/klen/django_markdown/issues
 Contributing
 ============
 
-Development of django-markdown happens at github: https://github.com/klen/django_markdown
+Development of original django-markdown happens at github: https://github.com/klen/django_markdown
+Development of django-markdown-gcir happens also at github:
+http://github.com/Ge0/django-markdown-gcir
 
 
 Contributors
@@ -180,6 +162,8 @@ Contributors
 * klen_ (Kirill Klenov)
 
 * yavorskiy_ (Sergii Iavorskyi)
+
+* Ge0 (Geoffrey ROYER)
 
 
 License
