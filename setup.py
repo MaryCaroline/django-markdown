@@ -37,9 +37,9 @@ setup(
     long_description=_read('README.rst'),
     license=_license,
 
-    author="Tomas Garzon",
-    author_email="tomasgarzonhervas@gmail.com",
-    url="https://github.com/tomasgarzon/django_markdown",
+    author="Geoffrey ROYER",
+    author_email="geoffrey.royer@gmail.com",
+    url="https://github.com/Ge0/django-markdown-gcir",
 
     keywords='html markdown django',
     classifiers=[
